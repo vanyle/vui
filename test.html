@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Test</title>
+	<script src="compiled_component.js"></script>
+</head>
+<body>
+
+<script>
+	let todo_list = make_todo_list({todo:["Bread","Oranges","Milk"]});
+	document.body.append(todo_list);
+
+	let counter1 = make_counter();
+	document.body.append(counter1);
+
+	let counter2 = make_counter();
+	document.body.append(counter2);
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "vui",
+  "version": "0.1.0",
+  "description": "A UI library to make reusable components",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanyle/vui.git"
+  },
+  "keywords": [
+    "vui",
+    "ui",
+    "frontend",
+    "component"
+  ],
+  "author": "vanyle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanyle/vui/issues"
+  },
+  "homepage": "https://github.com/vanyle/vui#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}

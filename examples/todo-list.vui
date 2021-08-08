@@ -1,0 +1,59 @@
+<!-- 
+
+Ideas for VCL : Vanyle Component Library.
+
+Key Ideas:
+- The components are compiled into HTML, CSS and JS.
+- There is no performance lost over static websites aka we are faster than React.
+- The components are reusable
+- The components integrate well with VBel2 when it comes to data fetching.
+- The components have build-in support for WebSocket endpoints so that they always display valid data.
+
+Because the server, which is running VBel is aware of how the database looks,
+it can efficiently generate components for you and stuff.
+
+Below, an example of how I think
+the syntax should look like and how to apply the ideas listed above.
+-->
+
+<style>
+/*
+	Style specify for the current component
+	We use square brackets so that everything remains valid CSS
+	for syntax highlighting but this will be replaced at run-time
+	by the class of the component
+*/
+[current-component]{
+	background-color: red;
+	border: 1px solid black;
+}
+</style>
+
+<template> <!-- Not a real html tag, it just signals that this begins our component -->
+	
+	<div class='large text-center'>
+		<h3>Todo List</h3>
+		<ul>
+			<for start="let i = 0" cond="i < data.todo.length" update="i++"> <!-- No rendered, custom component -->
+				<li> {{ data.todo[i] }}</li>	
+			</for>
+		</ul>
+	</div>
+</template>
+
+<script>
+	function load(data){
+		data.todo = data.todo || [];
+	}
+	function click(data){
+		data.todo.push("Bugs");
+	}
+	function postload(element,data){
+		console.log("Loaded!");
+	}
+	function update(){
+
+	}
+
+</script>
+
