@@ -3,30 +3,6 @@
 // Vanyle UI Library.
 // This is a compiler for vui files
 
-/*
-
-Usage:
-
-let vui = require('vui');
-
-vui.fromString(component_name,vui_component_string);
-vui.fromFile("path/to/component.vui"); // component is the name of the component
-
-// vui bundles every component into a simple javascript file.
-// This file is reusable for other projects and can then be used without vui (a bit like a static library in C++)
-fs.writeFileSync("compiled.js",vui.output());
-
-
-let list = make("todo-list",{todo :["Apple","Banana","Oranges"]});
-// or
-<todo-list todo="['Apple','Banana','Oranges']"/>
-
-*/
-
-
-// goal: no dependencies.
-// we have a custom xml parser and the specs make it so that
-// we don't have to do fancy javascript transformations
 const fs = require("fs");
 const path = require("path");
 
@@ -43,30 +19,6 @@ function fromString(vui_component_name,vui_string){
 
 	vui_table[vui_component_name] = vui_string;
 }
-
-// Real parsing starts here.
-
-
-// <name property=value > Stuff ... </name> OtherStuff
-/*
-[
-	{
-		name:'name',
-		properties:[
-			{
-				name:'property',
-				value:'value'
-			}
-		],
-		content:[
-			"Stuff"
-			// ...
-		]
-	},
-	"OtherStuff"
-]
-
-*/
 
 const autoSelfclosing = {
 	"link":true,
@@ -589,8 +541,8 @@ result += `
 	let outputProxy = new Proxy(componentDataContent,handler2);
 `;
 
-		result += `let e = ((data) => {
-	${jsSource.result}
+		result += `	let e = ((data) => {
+${jsSource.result}
 	loading = false;
 	e.addEventListener("click",() => {
 		if(typeof click === "function"){
@@ -625,6 +577,7 @@ module.exports = {
 	htmlToJs
 };
 
+// TODO: support more than 1 input source
 if(process.argv.length === 4){
 	// Running as CLI.
 	let source = process.argv[2];
@@ -636,8 +589,25 @@ if(process.argv.length === 4){
 		// complain!
 		console.error(`${source} is not a file/folder. There is nothing to compile !`);
 	}else{
+		let info = fs.lstatSync(source);
+		if(info.isDirectory()){
+			let s = fs.readdirSync(source);
+			for(let i = 0;i < s.length;i++){
+				if(!s[i].endsWith(".vui")){
+					continue;
+				}
+				let p = path.join(source,s[i]);
+				let info = fs.lstatSync(p);
+				if(info.isFile()){
+					fromFile(p);
+				}
+			}
+		}else if(info.isFile()){
+			fromFile(source);
+		}
 
+		let s = output();
+		fs.writeFileSync(dest,s);
+		console.log(`${dest} generated. (${Math.round(s.length*10 / 1024)/10} Ko)`);
 	}
-
-	console.log(`${source} -> ${dest}`);
 }
