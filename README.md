@@ -4,7 +4,7 @@ VUI is a frontend framework to build fast responsive websites.
 VUI is based on a compiler so that when the page loads, no javascript
 has to run to display the page (besides content that has to load through AJAX requests)
 
-This means that VUI is faster than most common frameworks like
+This means that VUI is ⚡ faster than most common frameworks like
 - Vue
 - React
 - Angular
@@ -16,7 +16,7 @@ readable but fast as the DOM structure of your website is recompiled.
 This gives you the benefits of static vanilla HTML websites with the flexibility
 and syntax sugar of javacript frameworks with components.
 
-## Features
+## ✨Features✨
 
 ### Component Based
 
@@ -43,7 +43,7 @@ This makes compilation fast and babel free.
 
 VUI precompiles your pages and your components. This speeds up rendering while adding no bloat to your pages.
 
-## Overview
+## ✈️Overview✈️
 
 Example of a simple component:
 ```html
@@ -100,11 +100,21 @@ You can bundle multiple components into one file. This is required if you have d
 vui path/to/my/components/ path/to/the/bundle.js
 ```
 
-## Documentation
+You can also compile your files programmatically if you want to insert VUI into an existing workflow:
+```js
+
+let vui = require("vui");
+// vui.fromString("component_name",vui_component_string);
+vui.fromFile("path/to/the-component.vui"); // "the-component" is the name of the component
+fs.writeFileSync("compiled.js",vui.output()); // compile the components and write the result somewhere.
+```
+
+## 📚 Documentation 📚
 
 You can checkout more component examples in `/examples`.
+A detailled guide will be available in [DOC.md](blob/master/DOC.md)
 
-## VBel2 integration
+## 🔌VBel2 integration🔌
 
 [VBel2](https://github.com/vanyle/vbel2) is a backend library for Node.js
 We provide special features to write components that work well with the Websockets to have
@@ -125,3 +135,7 @@ reactivity.
 	}
 </script>
 ```
+
+## Want to help ?
+
+Star the project, it gives me motivation.

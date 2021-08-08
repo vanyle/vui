@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // Vanyle UI Library.
 // This is a compiler for vui files
 
@@ -15,7 +17,7 @@ vui.fromFile("path/to/component.vui"); // component is the name of the component
 fs.writeFileSync("compiled.js",vui.output());
 
 
-let list = make("todo-list",{todo:["Apple","Banana","Oranges"]});
+let list = make("todo-list",{todo :["Apple","Banana","Oranges"]});
 // or
 <todo-list todo="['Apple','Banana','Oranges']"/>
 
@@ -512,7 +514,7 @@ function output(){
 
 		// generate a unique class for the component
 		// This class will act as an id for this type of component.
-		// uniqueString should be more deterministic so that compilation is deterministic!
+		// TODO: uniqueString should be more deterministic so that compilation is deterministic!
 		let cclass = uniqueString(16);
 		while(typeof classCache[cclass] !== "undefined"){
 			cclass = uniqueString(16);
@@ -622,3 +624,20 @@ module.exports = {
 	htmlParser,
 	htmlToJs
 };
+
+if(process.argv.length === 4){
+	// Running as CLI.
+	let source = process.argv[2];
+	let dest = process.argv[3];
+
+	// TODO: add pretty colors 
+
+	if(!fs.existsSync(source)){
+		// complain!
+		console.error(`${source} is not a file/folder. There is nothing to compile !`);
+	}else{
+
+	}
+
+	console.log(`${source} -> ${dest}`);
+}

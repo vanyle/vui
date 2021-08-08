@@ -1,6 +1,6 @@
 {
   "name": "vui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A UI library to make reusable components",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,8 @@
   "homepage": "https://github.com/vanyle/vui#readme",
   "devDependencies": {
     "jest": "^27.0.6"
+  },
+  "bin":{
+    "vui":"./index.js"
   }
 }
