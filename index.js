@@ -418,19 +418,34 @@ function htmlToJs(html_tree,pad){
 		result += `${pad}}\n`;
 		real = false;
 	}else{
-		result += `${pad}let e = document.createElement(${JSON.stringify(tagName)});\n`;
-		// Create a local lambda function that will setup the element and call it on update.
-		result += `${pad}let generator = () => {
-${pad}e.innerHTML = "";`;
-		for(let i = 0;i < html_tree.properties.length;i++){
-			let p = html_tree.properties[i];
-			// we can do special things for some properties !
-			result += `${pad}e.setAttribute(${JSON.stringify(p.name)},${JSON.stringify(p.value)});\n`;
+		// handle nested custom elements.
+		let asJsFn = tagName.replace(/\-/g,"_");
+		if(vui_table[asJsFn]){
+			// extract attributes into an object and pass it as argupment.
+			let customData = {};
+			for(let i = 0;i < html_tree.properties.length;i++){
+				let p = html_tree.properties[i];
+				// TODO: apply resolveString to p.value 
+				customData[p.name] = p.value; // discard repeats.
+			}
+			result += `${pad}let e = make_${asJsFn}(${JSON.stringify(customData)});`;
+
+
+		}else{
+
+			result += `${pad}let e = document.createElement(${JSON.stringify(tagName)});\n`;
+			// Create a local lambda function that will setup the element and call it on update.
+			result += `${pad}let generator = () => {\n${pad}e.innerHTML = "";`;
+			for(let i = 0;i < html_tree.properties.length;i++){
+				let p = html_tree.properties[i];
+				// we can do special things for some properties !
+				result += `${pad}e.setAttribute(${JSON.stringify(p.name)},${JSON.stringify(p.value)});\n`;
+			}
+			result += makeBody();
+			result += `${pad}};` // end of generator function.
+			result += `generator();\n`;
+			result += `${pad}e.addEventListener("update",generator);`;
 		}
-		result += makeBody();
-		result += `${pad}};` // end of generator function.
-		result += `generator();`;
-		result += `${pad}e.addEventListener("update",generator);`;
 		real = true;
 	}
 
@@ -559,12 +574,13 @@ result += `
 			return componentDataContent[prop];
 		},
 		set: (target,prop,value,receiver) => {
-			componentDataContent[prop] = value;
+			let tmp = (componentDataContent[prop] = value);
 			if(domUsageTable[prop]){
 				for(let i = 0;i < domUsageTable[prop].length;i++){
 					domUsageTable[prop][i].dispatchEvent(new CustomEvent("update", componentDataContent));
 				}
 			}
+			return tmp;
 		}
 	}
 	let proxy = new Proxy(componentDataContent,handler);
@@ -575,7 +591,9 @@ result += `
 	${jsSource.result}
 	loading = false;
 	e.addEventListener("click",() => {
-		(click || (()=>{}))(outputProxy);
+		if(typeof click === "function"){
+			click(outputProxy);
+		}
 	});
 	return e;
 	})(proxy);
@@ -584,8 +602,9 @@ result += `
 	}
 `;
 
-		result += `\te.className += ${JSON.stringify(" "+cclass)};\n`;
-		result += `\treturn e;\n}\n\n`;
+		result += `	e.className += ${JSON.stringify(" "+cclass)};\n`;
+		result += `	e.data = outputProxy;`;
+		result += `	return e;\n}\n\n`;
 
 
 	}

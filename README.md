@@ -116,16 +116,12 @@ reactivity.
 </style>
 <template>
 	<div>
-		{{ likes }} likes
+		{{ data.likes }} likes
 	</div>
 </template>
 <script>
-	function load(){
-
+	function load(data){
+		data.likes = data.likes || 0;
 	}
-	function update(){
-
-	}
-	
 </script>
 ```

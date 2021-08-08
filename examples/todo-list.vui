@@ -33,11 +33,13 @@ the syntax should look like and how to apply the ideas listed above.
 	
 	<div class='large text-center'>
 		<h3>Todo List</h3>
+		<button>Add task</button>
 		<ul>
 			<for start="let i = 0" cond="i < data.todo.length" update="i++"> <!-- No rendered, custom component -->
 				<li> {{ data.todo[i] }}</li>	
 			</for>
 		</ul>
+		<counter title="TODO counter"/>
 	</div>
 </template>
 
@@ -45,14 +47,10 @@ the syntax should look like and how to apply the ideas listed above.
 	function load(data){
 		data.todo = data.todo || [];
 	}
-	function click(data){
-		data.todo.push("Bugs");
-	}
 	function postload(element,data){
-		console.log("Loaded!");
-	}
-	function update(){
-
+		element.children[1].onclick = () => {
+			data.todo.push("Bugs");
+		}
 	}
 
 </script>
