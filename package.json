@@ -1,31 +1,34 @@
 {
-  "name": "vui",
-  "version": "0.1.1",
-  "description": "A UI library to make reusable components",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vanyle/vui.git"
-  },
-  "keywords": [
-    "vui",
-    "ui",
-    "frontend",
-    "component"
-  ],
-  "author": "vanyle",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vanyle/vui/issues"
-  },
-  "homepage": "https://github.com/vanyle/vui#readme",
-  "devDependencies": {
-    "jest": "^27.0.6"
-  },
-  "bin":{
-    "vui":"./index.js"
-  }
+	"name": "vui",
+	"version": "0.1.1",
+	"description": "A UI library to make reusable components",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"build": "vite build",
+		"dev": "vite"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/vanyle/vui.git"
+	},
+	"keywords": [
+		"vui",
+		"ui",
+		"frontend",
+		"component"
+	],
+	"author": "vanyle",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/vanyle/vui/issues"
+	},
+	"homepage": "https://github.com/vanyle/vui#readme",
+	"devDependencies": {
+		"@microsoft/api-extractor": "^7.52.8",
+		"jest": "^30.0.0",
+		"typescript": "^5.8.3",
+		"unplugin-dts": "1.0.0-beta.0",
+		"vite": "^6.3.5"
+	}
 }

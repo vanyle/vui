@@ -1,20 +1,54 @@
-# VUI
+# Vui
 
-VUI is a frontend framework to build fast responsive websites.
-VUI is based on a compiler so that when the page loads, no javascript
-has to run to display the page (besides content that has to load through AJAX requests)
+Vui is a frontend framework to build fast responsive websites.
+Vui uses web components and Lit's syntax to display the page.
 
-This means that VUI is ⚡ faster than most common frameworks like
-- Vue
-- React
-- Angular
-- ...
+It is interoperable with every other framework like Vue, React, Angular, etc...
 
-Indeed, VUI compiles your code into HTML+CSS+Javascript that remains
-readable but fast as the DOM structure of your website is recompiled.
+It is simpler and lighter than Lit while providing 90% of the features. In fact, you can use VSCode's lit extension to get autocompletion and syntax highlighting!
 
-This gives you the benefits of static vanilla HTML websites with the flexibility
-and syntax sugar of javacript frameworks with components.
+## ✈️Overview✈️
+
+Example of a simple component:
+```ts
+@VUI.register("my-counter")
+class Counter extends VUI.Component{
+	@attribute()
+	count: number = 0;
+
+	@attribute()
+	heading: string = "Counter";
+
+	render(){
+		return html`
+			<h1>${this.heading}</h1>
+			<div>Counter: ${this.count}</div>
+			<button @click=${() => this.onClick()}>Click me!</button>
+		`;
+	}
+	onClick(){
+		this.count += 1;
+	}
+
+	static style = css`
+		h1 {
+			color: blue;
+		}
+		button {
+			background-color: lightblue;
+			border: none;
+			padding: 10px;
+			cursor: pointer;
+		}
+	`
+}
+```
+
+Using the component inside another component
+
+```html
+<my-counter title="Counter!" count="5"/>
+```
 
 ## ✨Features✨
 
@@ -27,115 +61,29 @@ Once compiled, the components just look like regular `.js` files. Moreover, comp
 
 ### Compatible with every other framework
 
-VUI components can be used in every place where you can have a dom:
-electron, the browser, etc...
+VUI components can be used in every place where you can have a DOM like electron, the browser, etc...
 
-You can import components into existing projects with `import`, `<script>` tags or `require`.
+You can import components into existing projects and use them using regular HTML tags.
 
 ### No dependencies
 
-VUI is totally independent from every other package. You just install the compiler and you can
-write your modules anywhere. There is just one package that does the job (and it's small).
-
-This makes compilation fast and babel free.
+Vui has no dependencies, it is a single file that you can include in your project.
+It works with all bundlers and all typescript / javascript configurations.
 
 ### Fast
 
-VUI precompiles your pages and your components. This speeds up rendering while adding no bloat to your pages.
+Vui uses native web components and a simple DOM diffing system to update the page with no virtual DOM.
 
-## ✈️Overview✈️
+## Cool premade components
 
-Example of a simple component:
-```html
-<style> /* Style is local to the component */
-	[current-component] > h1{
-		color:red;
-	}
-</style>
-<template>
-	<div>
-        <h1> {{ title }}</h1>
-        <div>Counter: {{ data.count }}</div>
-	</div>
-</template>
-<script>
-	function load(data){
-		data.count = data.count || 0;
-	}
-	function click(){
-		data.count += 1;
-	}
-</script>
-```
-
-Using the component inside another component (requires the compiler)
-
-```html
-<counter title="Counter!" count="5"/>
-```
-
-Using the component inside JS:
-
-```html
-<script src="/path/to/counter.js"></script>
-<script>
-    // let counter_component = require("/path/to/counter.js");
-    
-	let counter = counter_component({title:"Counter!",count:5});
-    document.body.appendChild(counter); // counter is a vanilla HTML Element.
-</script>
-
-```
-
-
-You should be familiar with this syntax if you used Vue components.
-
-Compile with:
-```bash
-vui path/to/my/component.vui path/to/the/compiled/file.js
-```
-
-You can bundle multiple components into one file. This is required if you have dependencies between components:
-```bash
-vui path/to/my/components/ path/to/the/bundle.js
-```
-
-You can also compile your files programmatically if you want to insert VUI into an existing workflow:
-```js
-
-let vui = require("vui");
-// vui.fromString("component_name",vui_component_string);
-vui.fromFile("path/to/the-component.vui"); // "the-component" is the name of the component
-fs.writeFileSync("compiled.js",vui.output()); // compile the components and write the result somewhere.
-```
+You can find some premade components in the `/components` folder to get started quickly on your new project!
+Or integrate them into your existing project!
 
 ## 📚 Documentation 📚
 
 You can checkout more component examples in `/examples`.
 A detailled guide will be available in [DOC.md](blob/master/DOC.md)
 
-## 🔌VBel2 integration🔌
-
-[VBel2](https://github.com/vanyle/vbel2) is a backend library for Node.js
-We provide special features to write components that work well with the Websockets to have
-reactivity.
-
-```html
-<style>
-
-</style>
-<template>
-	<div>
-		{{ data.likes }} likes
-	</div>
-</template>
-<script>
-	function load(data){
-		data.likes = data.likes || 0;
-	}
-</script>
-```
-
-## Want to help ?
+## ❓Want to help❓
 
 Star the project, it gives me motivation.
