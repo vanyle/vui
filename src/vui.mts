@@ -66,7 +66,6 @@ export namespace VUI {
     return function (target: Function) {
       if (!customElements.get(name)) {
         customElements.define(name, target as CustomElementConstructor);
-        console.log(`Component ${name} registered.`);
       } else {
         console.warn(`Component ${name} is already registered.`);
       }
