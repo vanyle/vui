@@ -7,47 +7,61 @@ It is interoperable with every other framework like Vue, React, Angular, etc...
 
 It is simpler and lighter than Lit while providing 90% of the features. In fact, you can use VSCode's lit extension to get autocompletion and syntax highlighting!
 
+Unlike Lit, Vui requires no build step or bundling step and can be included in existing JavaScript / TypeScript any project. See `index.html` as an example
+
 ## ✈️Overview✈️
 
 Example of a simple component:
+
 ```ts
-@VUI.register("my-counter")
-class Counter extends VUI.Component{
-	@attribute()
-	count: number = 0;
+@customElement("my-counter")
+class Counter extends VUI.Component {
+    @state()
+    accessor count: number = 0;
 
-	@attribute()
-	heading: string = "Counter";
+    @attribute({ name: "heading" })
+    accessor heading: string = "Counter";
 
-	render(){
-		return html`
-			<h1>${this.heading}</h1>
-			<div>Counter: ${this.count}</div>
-			<button @click=${() => this.onClick()}>Click me!</button>
-		`;
-	}
-	onClick(){
-		this.count += 1;
-	}
+    render() {
+        return html`
+            <div>${this.heading} ${this.count}</div>
+            <button @click=${() => this.onClick()}>Click me!</button>
+        `;
+    }
+    onClick() {
+        this.count += 1;
+    }
 
-	static style = css`
-		h1 {
-			color: blue;
-		}
-		button {
-			background-color: lightblue;
-			border: none;
-			padding: 10px;
-			cursor: pointer;
-		}
-	`
+    // add override here when using typescript
+    static override styles = css`
+        :host {
+            display: inline-flex;
+        }
+        :host > * {
+            padding: 8px;
+        }
+        div {
+            background-color: lightblue;
+        }
+        button {
+            background-color: lightgreen;
+            border: none;
+            cursor: pointer;
+        }
+    `;
 }
 ```
 
 Using the component inside another component
 
+```js
+return html`<my-counter .heading=${Counter!} .count=${5} ></my-counter>`
+```
+
+Using the component inside HTML
+
 ```html
-<my-counter title="Counter!" count="5"/>
+<my-counter heading="Counter!"></my-counter>
 ```
 
 ## ✨Features✨
@@ -57,7 +71,7 @@ Using the component inside another component
 Split your app into independent reusable components.
 You can share theses components between projects with no dependencies.
 
-Once compiled, the components just look like regular `.js` files. Moreover, compiled components remain small.
+The components are regular `.js` (or `.ts`) files.
 
 ### Compatible with every other framework
 
@@ -74,15 +88,10 @@ It works with all bundlers and all typescript / javascript configurations.
 
 Vui uses native web components and a simple DOM diffing system to update the page with no virtual DOM.
 
-## Cool premade components
-
-You can find some premade components in the `/components` folder to get started quickly on your new project!
-Or integrate them into your existing project!
-
 ## 📚 Documentation 📚
 
 You can checkout more component examples in `/examples`.
-A detailled guide will be available in [DOC.md](blob/master/DOC.md)
+Vui uses the same syntax and tries to match [Lit](https://lit.dev/)'s behavior
 
 ## ❓Want to help❓
 
