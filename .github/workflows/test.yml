@@ -1,0 +1,28 @@
+on:
+    pull_request:
+        branches: [master]
+    push:
+        branches: [master]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+
+            - name: Install Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version-file: ".node-version"
+                  cache: "pnpm"
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Run tests
+              run: pnpm test

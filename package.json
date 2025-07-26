@@ -4,7 +4,8 @@
     "description": "A UI library to make reusable components",
     "main": "index.js",
     "scripts": {
-        "test": "vitest",
+        "test": "vitest run",
+        "test:watch": "vitest",
         "build": "vite build",
         "dev": "vite"
     },
@@ -20,6 +21,7 @@
     ],
     "author": "vanyle",
     "license": "MIT",
+    "packageManager": "pnpm@10.8.1",
     "bugs": {
         "url": "https://github.com/vanyle/vui/issues"
     },
@@ -29,6 +31,7 @@
         "@testing-library/dom": "^10.4.0",
         "@testing-library/jest-dom": "^6.6.3",
         "@vitest/browser": "^3.2.4",
+        "jsdom": "^26.1.0",
         "shadow-dom-testing-library": "^1.12.0",
         "typescript": "^5.8.3",
         "unplugin-dts": "1.0.0-beta.0",
