@@ -1,17 +1,22 @@
-# Vui
+<h1 align="center">VUI</h1>
 
-Vui is a frontend framework to build fast, responsive, accessible websites.
-It uses web components and Lit's syntax to display the page.
+<p align="center">
+  <i>A frontend framework to build fast, responsive, accessible websites.</i>
+</p>
+<p align="center">
+  <a href="https://github.com/vanyle/vui/"><img src="https://img.shields.io/github/stars/vanyle/vui?style=social" alt="GitHub Stars"></a>
+  <img src="https://github.com/vanyle/vui/actions/workflows/test.yml/badge.svg" alt="github test badge"/>
+</p>
 
-It is interoperable with every other framework like Vue, React, Angular, etc...
+## 🎉 Features
 
-Components allow you to split your rendering logic into simple, testable, composable and reusable pieces.
+-   Based on native [Web Components](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
+-   Interoperable with every other framework like Vue, React, Angular, etc...
+-   Uses the same syntax as [Lit](https://lit.dev) while being simpler and lighter. You can use the same autocompletion and syntax highlighting as Lit.
+-   Components based to allow you to split your rendering logic into simple, testable, composable and reusable pieces.
+-   No build step or bundling step required. Vui can be included in existing JavaScript / TypeScript any project. See `index.html` as an example
 
-It is simpler and lighter than Lit while providing 90% of the features. In fact, you can use VSCode's lit extension to get autocompletion and syntax highlighting!
-
-Unlike Lit, Vui requires no build step or bundling step and can be included in existing JavaScript / TypeScript any project. See `index.html` as an example
-
-## ✈️Overview✈️
+## ✈️ Overview
 
 Example of a simple component:
 
@@ -66,41 +71,17 @@ Using the component inside HTML
 <my-counter heading="Counter!"></my-counter>
 ```
 
-## ✨Features✨
-
-### Component Based
-
-Split your app into independent reusable components.
-You can share theses components between projects with no dependencies.
-
-The components are regular `.js` (or `.ts`) files.
-
-### Compatible with every other framework
-
-VUI components can be used in every place where you can have a DOM like electron, the browser, etc...
-
-You can import components into existing projects and use them using regular HTML tags.
-
-### No dependencies
-
-Vui has no dependencies, it is a single file that you can include in your project.
-It works with all bundlers and all typescript / javascript configurations.
-
-### Fast
-
-Vui uses native web components and a simple DOM diffing system to update the page with no virtual DOM.
-
-## 📚 Documentation 📚
+## 📚 Documentation
 
 You can checkout more component examples in `/examples`.
 Vui uses the same syntax and tries to match [Lit](https://lit.dev/)'s behavior
 
-## Testing
+## 🧪 Testing
 
 Components can be unit tested using `vitest`, see the `__tests__` folder as an example.
 You can also use playwright for integration testing, but unlike Lit, you don't have to.
 
-## ❓Want to help❓
+## ❓ Want to help
 
 Ranked by difficulty
 
