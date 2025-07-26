@@ -71,6 +71,48 @@ Using the component inside HTML
 <my-counter heading="Counter!"></my-counter>
 ```
 
+## 🆕 Installation
+
+### If you are using JavaScript and no build step
+
+If you are using pure JavaScript, you just need to include the following tag in your HTML.
+
+```js
+<script src="https://github.com/vanyle/vui/releases/download/0.0.1/vui.umd.cjs"></script>
+```
+
+### If you are using Typescript
+
+Vui is not yet published to npm, so you need to install it using its URL:
+
+-   Using npm: `npm install https://github.com/vanyle/vui/`
+-   Using pnpm: `pnpm add https://github.com/vanyle/vui/`
+
+You'll need to following in your `vite.config` file if you want to use the decorators.
+The decorators are optional, but they make the syntax a lot nicer.
+
+```ts
+import { defineConfig } from "vite";
+
+export default defineConfig({
+    plugins: [],
+    esbuild: {
+        target: "es2022", // needed for decorator support
+    },
+});
+```
+
+Afterwards, you can import "VUI" and use it:
+
+```ts
+import { VUI, customElement, state, attribute, html, css } from "vui";
+
+@customElement("my-custom-component")
+export class MyCustomComponent extends VUI.Component {
+  ...
+}
+```
+
 ## 📚 Documentation
 
 You can checkout more component examples in `/examples`.
