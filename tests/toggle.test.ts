@@ -9,7 +9,7 @@ import "../examples/toggle";
  */
 describe("Toggle Component", () => {
     it("should toggle the state", async () => {
-        await render(`<toggle-example></toggle-example>`);
+        await render(`<vui-toggle></vui-toggle>`);
 
         const btn = screen.getByShadowText("Option 1");
         await click(btn);

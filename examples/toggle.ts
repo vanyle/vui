@@ -1,11 +1,11 @@
-import { css, customElement, html, state, VUI } from "../src/vui";
+import { attribute, css, customElement, html, state, VUI } from "../src/vui";
 
-@customElement("toggle-example")
+@customElement("vui-toggle")
 export class Toggle extends VUI.Component {
     @state()
     accessor options: string[] = ["Option 1", "Option 2"];
 
-    @state()
+    @attribute({ name: "selected" })
     accessor selected: string = "Option 1";
 
     render() {

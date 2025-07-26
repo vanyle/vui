@@ -1,6 +1,6 @@
 import { attribute, css, customElement, html, state, VUI } from "../src/vui";
 
-@customElement("my-counter")
+@customElement("vui-counter")
 export class Counter extends VUI.Component {
     @state()
     accessor count: number = 0;

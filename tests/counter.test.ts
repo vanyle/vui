@@ -9,7 +9,7 @@ import "../examples/counter";
  */
 describe("Counter Component", () => {
     it("should increment the count", async () => {
-        await render(`<my-counter heading="Test Counter"></my-counter>`);
+        await render(`<vui-counter heading="Test Counter"></vui-counter>`);
 
         const btn = screen.getByShadowText("Click me!");
         expect(screen.getByShadowText("0")).toBeVisible();

@@ -1,6 +1,6 @@
 import { customElement, html, state, VUI } from "../src/vui";
 
-@customElement("text-editor")
+@customElement("vui-texteditor")
 export class TextEditor extends VUI.Component {
     @state()
     accessor content: string = "";
