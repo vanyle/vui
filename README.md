@@ -88,14 +88,30 @@ Vui is not yet published to npm, so you need to install it using its URL:
 -   Using npm: `npm install https://github.com/vanyle/vui/`
 -   Using pnpm: `pnpm add https://github.com/vanyle/vui/`
 
-You'll need to following in your `vite.config` file if you want to use the decorators.
+VUI uses [decorators](https://github.com/tc39/proposal-decorators). They are not widely supported by browsers in 2025,
+so you need to add the following in your `vite.config` / `tsconfig.json` file if you want to use them.
 The decorators are optional, but they make the syntax a lot nicer.
+
+For `tsconfig.json`:
+
+```js
+{
+    // ...
+    "target": "es2022",
+
+    // "experimentalDecorators" needs to be false (false is the default)
+    "experimentalDecorators": false
+}
+```
+
+For `vite`:
 
 ```ts
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    plugins: [],
+    // The rest of your config stays unchanged
+    // ...
     esbuild: {
         target: "es2022", // needed for decorator support
     },
@@ -120,7 +136,7 @@ Vui uses the same syntax and tries to match [Lit](https://lit.dev/)'s behavior
 
 ## 🧪 Testing
 
-Components can be unit tested using `vitest`, see the `__tests__` folder as an example.
+Components can be unit tested using `vitest`, see the `tests` folder as an example.
 You can also use playwright for integration testing, but unlike Lit, you don't have to.
 
 ## ❓ Want to help
@@ -129,5 +145,5 @@ Ranked by difficulty
 
 -   Drop a ⭐Star!
 -   Try use it for your next project
--   Contribute a test inside `__tests__`
+-   Contribute a test inside `tests`
 -   Contribute a component inside `examples`
