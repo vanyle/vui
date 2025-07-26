@@ -1,9 +1,11 @@
 # Vui
 
-Vui is a frontend framework to build fast responsive websites.
-Vui uses web components and Lit's syntax to display the page.
+Vui is a frontend framework to build fast, responsive, accessible websites.
+It uses web components and Lit's syntax to display the page.
 
 It is interoperable with every other framework like Vue, React, Angular, etc...
+
+Components allow you to split your rendering logic into simple, testable, composable and reusable pieces.
 
 It is simpler and lighter than Lit while providing 90% of the features. In fact, you can use VSCode's lit extension to get autocompletion and syntax highlighting!
 
@@ -93,6 +95,16 @@ Vui uses native web components and a simple DOM diffing system to update the pag
 You can checkout more component examples in `/examples`.
 Vui uses the same syntax and tries to match [Lit](https://lit.dev/)'s behavior
 
+## Testing
+
+Components can be unit tested using `vitest`, see the `__tests__` folder as an example.
+You can also use playwright for integration testing, but unlike Lit, you don't have to.
+
 ## ❓Want to help❓
 
-Star the project, it gives me motivation.
+Ranked by difficulty
+
+-   Drop a ⭐Star!
+-   Try use it for your next project
+-   Contribute a test inside `__tests__`
+-   Contribute a component inside `examples`
