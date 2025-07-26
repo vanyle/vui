@@ -10,6 +10,10 @@ export default defineConfig({
             entryRoot: "src",
         }),
     ],
+    test: {
+        globals: true,
+        environment: "jsdom",
+    },
     build: {
         lib: {
             name: "vui",

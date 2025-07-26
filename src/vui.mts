@@ -1010,7 +1010,9 @@ export function getStylesheet(cssResult: CSSResult): CSSStyleSheet {
         return cached;
     }
     const styleSheet = new CSSStyleSheet();
-    styleSheet.replaceSync(cssResult.cssText);
+    if (styleSheet.replaceSync) {
+        styleSheet.replaceSync(cssResult.cssText);
+    }
     cssResult.styleSheet = styleSheet;
     cssSheetCache[cssResult.cssText] = styleSheet;
     return styleSheet;

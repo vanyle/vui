@@ -17,7 +17,7 @@ export class Counter extends VUI.Component {
 
     render() {
         return html`
-            <div>${this.heading} ${this.count}</div>
+            <div>${this.heading}<span>${this.count}</span></div>
             <button @click=${() => this.onClick()}>Click me!</button>
         `;
     }
