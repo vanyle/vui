@@ -134,6 +134,8 @@ export class MyCustomComponent extends VUI.Component {
 You can checkout more component examples in `/examples`.
 Vui uses the same syntax and tries to match [Lit](https://lit.dev/)'s behavior
 
+You can run `pnpm storybook` to see the examples in action. You can also use `pnpm dev` and edit `index.html` to play around with the components.
+
 ## 🧪 Testing
 
 Components can be unit tested using `vitest`, see the `tests` folder as an example.
