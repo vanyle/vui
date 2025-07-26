@@ -2,7 +2,7 @@
     "name": "vui",
     "version": "0.1.1",
     "description": "A UI library to make reusable components",
-    "main": "src/main.mts",
+    "main": "src/main.ts",
     "scripts": {
         "test": "vitest run",
         "test:watch": "vitest",

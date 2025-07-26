@@ -1,11 +1,4 @@
-import {
-    attribute,
-    css,
-    customElement,
-    html,
-    state,
-    VUI,
-} from "../src/vui.mts";
+import { attribute, css, customElement, html, state, VUI } from "../src/vui";
 
 @customElement("my-counter")
 export class Counter extends VUI.Component {

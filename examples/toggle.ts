@@ -1,4 +1,4 @@
-import { css, customElement, html, state, VUI } from "../src/vui.mts";
+import { css, customElement, html, state, VUI } from "../src/vui";
 
 @customElement("toggle-example")
 export class Toggle extends VUI.Component {
@@ -19,7 +19,7 @@ export class Toggle extends VUI.Component {
                         }}
                     >
                         ${option}
-                    </div>`
+                    </div>`,
             )}
         </div>`;
     }

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { screen } from "shadow-dom-testing-library";
 import { click, render } from "./testingUtils";
 import "@testing-library/jest-dom/vitest";
-import "../examples/counter.mts";
+import "../examples/counter";
 
 /**
  * @jest-environment jsdom

@@ -1,4 +1,4 @@
-import { customElement, html, state, VUI } from "../src/vui.mts";
+import { customElement, html, state, VUI } from "../src/vui";
 
 @customElement("text-editor")
 export class TextEditor extends VUI.Component {
