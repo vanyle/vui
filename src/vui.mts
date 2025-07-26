@@ -799,7 +799,7 @@ export function customElement(elementName: string) {
  *  myProperty;
  * ```
  */
-export function state(_propertyKey: string) {
+export function state() {
     return function <T extends VUI.Component, V>(
         target: ClassAccessorDecoratorTarget<T, V>,
         context: ClassAccessorDecoratorContext<T, V>
@@ -837,7 +837,8 @@ export function attribute({ name: attributeName }: { name?: string }) {
         // During attribute decoration, we don't have access to the class type yet as it is not built.
         // We can add it to the attributePropertyMap and add the observedAttributes during the registration.
         const propertyName = String(context.name);
-        currentlyRegisteredAttributes[attributeName || propertyName] = propertyName;
+        currentlyRegisteredAttributes[attributeName || propertyName] =
+            propertyName;
 
         const ref = { val: undefined as V };
         return {

@@ -9,7 +9,7 @@ import {
 
 @customElement("my-counter")
 export class Counter extends VUI.Component {
-    @state("count")
+    @state()
     accessor count: number = 0;
 
     @attribute({ name: "heading" })
