@@ -45,11 +45,11 @@ importers:
         specifier: ^9.1.1
         version: 9.1.1(@testing-library/dom@10.4.0)(vite@7.0.6(@types/node@24.0.3))
       typescript:
-        specifier: ^5.8.3
-        version: 5.8.3
+        specifier: ^5.9.2
+        version: 5.9.2
       unplugin-dts:
         specifier: 1.0.0-beta.4
-        version: 1.0.0-beta.4(@microsoft/api-extractor@7.52.10(@types/node@24.0.3))(esbuild@0.25.8)(rollup@4.45.3)(typescript@5.8.3)(vite@7.0.6(@types/node@24.0.3))
+        version: 1.0.0-beta.4(@microsoft/api-extractor@7.52.10(@types/node@24.0.3))(esbuild@0.25.8)(rollup@4.45.3)(typescript@5.9.2)(vite@7.0.6(@types/node@24.0.3))
       vite:
         specifier: ^7.0.6
         version: 7.0.6(@types/node@24.0.3)
@@ -1191,8 +1191,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.8.3:
-    resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
+  typescript@5.9.2:
+    resolution: {integrity: sha512-CWBzXQrc/qOkhidw1OzBTQuYRbfyxDXJMVJ1XNwUHGROVmuaeiEm3OslpZ1RV96d7SKKjZKrSJu3+t/xlw3R9A==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -2434,7 +2434,7 @@ snapshots:
 
   typescript@5.8.2: {}
 
-  typescript@5.8.3: {}
+  typescript@5.9.2: {}
 
   ufo@1.6.1: {}
 
@@ -2443,7 +2443,7 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unplugin-dts@1.0.0-beta.4(@microsoft/api-extractor@7.52.10(@types/node@24.0.3))(esbuild@0.25.8)(rollup@4.45.3)(typescript@5.8.3)(vite@7.0.6(@types/node@24.0.3)):
+  unplugin-dts@1.0.0-beta.4(@microsoft/api-extractor@7.52.10(@types/node@24.0.3))(esbuild@0.25.8)(rollup@4.45.3)(typescript@5.9.2)(vite@7.0.6(@types/node@24.0.3)):
     dependencies:
       '@rollup/pluginutils': 5.2.0(rollup@4.45.3)
       '@volar/typescript': 2.4.20
@@ -2452,7 +2452,7 @@ snapshots:
       kolorist: 1.8.0
       local-pkg: 1.1.1
       magic-string: 0.30.17
-      typescript: 5.8.3
+      typescript: 5.9.2
       unplugin: 2.3.5
     optionalDependencies:
       '@microsoft/api-extractor': 7.52.10(@types/node@24.0.3)
