@@ -1,5 +1,4 @@
-import { describe, expect, it } from "vitest";
-import { screen } from "shadow-dom-testing-library";
+import { describe, expect, it, beforeEach } from "vitest";
 import { click, render } from "./testingUtils";
 import "@testing-library/jest-dom/vitest";
 import "../examples/counter";
@@ -8,6 +7,11 @@ import "../examples/counter";
  * @jest-environment jsdom
  */
 describe("State Isolation Between Component Instances", () => {
+    beforeEach(() => {
+        // Clean up DOM between tests
+        document.body.innerHTML = '';
+    });
+
     it("should not share state between different instances of the same component", async () => {
         // Create two counter instances
         await render(`

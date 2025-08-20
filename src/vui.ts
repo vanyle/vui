@@ -804,17 +804,24 @@ export function state() {
         target: ClassAccessorDecoratorTarget<T, V>,
         context: ClassAccessorDecoratorContext<T, V>
     ) {
-        const ref = { val: undefined as V };
+        const instanceStorage = new WeakMap<T, { val: V }>();
         return {
             init: function (this: T, initialValue: V) {
-                ref.val = initialValue;
+                instanceStorage.set(this, { val: initialValue });
                 return initialValue;
             },
             get: function (this: T) {
-                return ref.val;
+                const storage = instanceStorage.get(this);
+                return storage ? storage.val : undefined as V;
             },
             set: function (this: T, value: V) {
-                ref.val = value;
+                let storage = instanceStorage.get(this);
+                if (!storage) {
+                    storage = { val: value };
+                    instanceStorage.set(this, storage);
+                } else {
+                    storage.val = value;
+                }
                 this.renderHTML();
             },
         };
