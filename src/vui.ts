@@ -804,17 +804,17 @@ export function state() {
         target: ClassAccessorDecoratorTarget<T, V>,
         context: ClassAccessorDecoratorContext<T, V>
     ) {
-        const ref = { val: undefined as V };
+        const map = new WeakMap<T, V>();
         return {
             init: function (this: T, initialValue: V) {
-                ref.val = initialValue;
+                map.set(this, initialValue);
                 return initialValue;
             },
             get: function (this: T) {
-                return ref.val;
+                return map.get(this) as V;
             },
             set: function (this: T, value: V) {
-                ref.val = value;
+                map.set(this, value);
                 this.renderHTML();
             },
         };
