@@ -18,7 +18,7 @@ export default defineConfig({
         lib: {
             name: "vui",
             formats: ["umd"],
-            entry: [resolve(__dirname, "src/main.mts")],
+            entry: [resolve(__dirname, "src/main.ts")],
             fileName: "vui",
         },
         minify: true,

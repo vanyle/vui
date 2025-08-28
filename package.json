@@ -22,7 +22,7 @@
   ],
   "author": "vanyle",
   "license": "MIT",
-  "packageManager": "pnpm@10.8.1",
+  "packageManager": "pnpm@10.15.0",
   "bugs": {
     "url": "https://github.com/vanyle/vui/issues"
   },
