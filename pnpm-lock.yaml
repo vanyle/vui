@@ -39,8 +39,8 @@ importers:
         specifier: ^1.54.2
         version: 1.54.2
       shadow-dom-testing-library:
-        specifier: ^1.12.0
-        version: 1.12.0(@testing-library/dom@10.4.1)
+        specifier: ^1.13.1
+        version: 1.13.1(@testing-library/dom@10.4.1)
       storybook:
         specifier: ^9.1.1
         version: 9.1.1(@testing-library/dom@10.4.1)(vite@7.1.1(@types/node@24.0.3))
@@ -1053,8 +1053,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  shadow-dom-testing-library@1.12.0:
-    resolution: {integrity: sha512-bc8rJautOSH5MKVig7qlD1NaskJgVb6aT0wY7RqAkxG+PYAVaoonjHXfjaWHbZSr5cwB9tYQ4gEHHd+y/O+XVA==}
+  shadow-dom-testing-library@1.13.1:
+    resolution: {integrity: sha512-X73VDI3KumYeYuz/C2yjn4/1bsUN68JleYI3NwFJUDa+5fWhO//s+02gdxdetY+mVRYZosVokkkmIhdzjABnmQ==}
     engines: {node: '>= 14', npm: '>= 7'}
     peerDependencies:
       '@testing-library/dom': '>= 8'
@@ -2300,7 +2300,7 @@ snapshots:
 
   semver@7.7.2: {}
 
-  shadow-dom-testing-library@1.12.0(@testing-library/dom@10.4.1):
+  shadow-dom-testing-library@1.13.1(@testing-library/dom@10.4.1):
     dependencies:
       '@testing-library/dom': 10.4.1
 
