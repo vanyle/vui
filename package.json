@@ -39,7 +39,7 @@
     "jsdom": "^27.0.0",
     "playwright": "^1.55.0",
     "shadow-dom-testing-library": "^1.13.1",
-    "storybook": "^9.1.5",
+    "storybook": "^9.1.8",
     "typescript": "^5.9.2",
     "unplugin-dts": "1.0.0-beta.6",
     "vite": "^7.1.5",
