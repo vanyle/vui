@@ -1,0 +1,18 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "runem.lit-plugin",
+            "esbenp.prettier-vscode",
+            "dbaeumer.vscode-eslint",
+            "YoavBls.pretty-ts-errors"
+        ]
+    },
+    "settings": {
+        
+    }
+}
