@@ -62,7 +62,7 @@ class Counter extends VUI.Component {
 Using the component inside another component
 
 ```js
-return html`<my-counter .heading=${Counter!} .count=${5} ></my-counter>`
+return html`<my-counter .heading=${"Counter!"} .count=${5}></my-counter>`;
 ```
 
 Using the component inside HTML
@@ -83,7 +83,7 @@ If you are using pure JavaScript, you just need to include the following tag in 
 
 ### If you are using Typescript
 
-Vui is not yet published to npm, so you need to install it using its URL:
+Vui is not yet published to npm. You need to install it using its URL:
 
 -   Using npm: `npm install https://github.com/vanyle/vui/`
 -   Using pnpm: `pnpm add https://github.com/vanyle/vui/`
@@ -146,6 +146,6 @@ You can also use playwright for integration testing, but unlike Lit, you don't h
 Ranked by difficulty
 
 -   Drop a ⭐Star!
--   Try use it for your next project
+-   Try using it for your next project
 -   Contribute a test inside `tests`
 -   Contribute a component inside `examples`
