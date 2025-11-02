@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/vanyle/vui#readme",
   "devDependencies": {
-    "@microsoft/api-extractor": "^7.53.1",
+    "@microsoft/api-extractor": "^7.53.3",
     "@storybook/addon-a11y": "^9.1.10",
     "@storybook/addon-docs": "^9.1.10",
     "@storybook/addon-vitest": "^9.1.10",
